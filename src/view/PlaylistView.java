@@ -3,18 +3,92 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
+import controller.PlaylistController;
+import model.Usuario;
 
-/**
+import javax.swing.*;/**
  *
  * @author wilso
  */
-public class PlaylistView extends javax.swing.JFrame {
+public class PlaylistView extends JFrame {
+    private JTextField txtNome;
+    private JTextArea areaPlaylists;
+    private JTextField txtId;
+    private JButton btnCriar, btnListar, btnAbrir;
+    private Usuario usuario;
 
-    /**
-     * Creates new form PlaylistView
-     */
-    public PlaylistView() {
-        initComponents();
+    public PlaylistView(Usuario usuario) {
+        this.usuario = usuario;
+
+        setTitle("Spotifei - Minhas Playlists");
+        setSize(500, 400);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLayout(null);
+
+        JLabel lblNome = new JLabel("Nome:");
+        lblNome.setBounds(20, 20, 50, 20);
+        add(lblNome);
+
+        txtNome = new JTextField();
+        txtNome.setBounds(70, 20, 200, 20);
+        add(txtNome);
+
+        btnCriar = new JButton("Criar");
+        btnCriar.setBounds(280, 20, 80, 20);
+        add(btnCriar);
+
+        btnListar = new JButton("Listar");
+        btnListar.setBounds(370, 20, 80, 20);
+        add(btnListar);
+
+        areaPlaylists = new JTextArea();
+        areaPlaylists.setEditable(false);
+        JScrollPane scroll = new JScrollPane(areaPlaylists);
+        scroll.setBounds(20, 60, 430, 200);
+        add(scroll);
+
+        JLabel lblId = new JLabel("ID:");
+        lblId.setBounds(20, 280, 30, 20);
+        add(lblId);
+
+        txtId = new JTextField();
+        txtId.setBounds(50, 280, 50, 20);
+        add(txtId);
+
+        btnAbrir = new JButton("Ver musicas");
+        btnAbrir.setBounds(120, 280, 120, 25);
+        add(btnAbrir);
+
+        PlaylistController controller = new PlaylistController(this);
+        btnCriar.addActionListener(e -> controller.criar());
+        btnListar.addActionListener(e -> controller.listar());
+        btnAbrir.addActionListener(e -> controller.abrirPlaylist());
+
+        // Mostrar todas as playlists ao abrir
+        controller.listar();
+
+        setLocationRelativeTo(null);
+        setVisible(true);
+    }
+
+    public String getNome() {
+        return txtNome.getText();
+    }
+
+    public int getIdPlaylistSelecionada() {
+        try {
+            return Integer.parseInt(txtId.getText());
+        } catch (NumberFormatException e) {
+            return -1;
+        }
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void exibirPlaylists(String texto) {
+        areaPlaylists.setText(texto);
     }
 
     /**
@@ -69,12 +143,7 @@ public class PlaylistView extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PlaylistView().setVisible(true);
-            }
-        });
+       
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

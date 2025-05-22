@@ -107,9 +107,19 @@ java -cp "Spotifei.jar;postgresql-42.7.2.jar" Main
 ```
 ---
 
-7.) Considerações Finais
+
+7.) Javadoc
+
+A documentação Javadoc está localizada na pasta:
+
+```bash
+dist/javadoc/index.html
+```
+---
+
+8.) Considerações Finais
 
 O projeto Spotifei foi concluido, aplicando boas praticas de programação orientada a objetos, padrão MVC,
 acesso a banco de dados e interfaces graficas com Swing.
 O GitHub foi utilizado como ferramenta central de organização e controle de versoes
-, com commits separados na `main`, e .jar funcional prontos para entrega.
+, com commits separados na `main`, documentacao javadoc e .jar funcional prontos para entrega.

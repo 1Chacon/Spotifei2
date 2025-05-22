@@ -123,3 +123,15 @@ O projeto Spotifei foi concluido, aplicando boas praticas de programação orien
 acesso a banco de dados e interfaces graficas com Swing.
 O GitHub foi utilizado como ferramenta central de organização e controle de versoes
 , com commits separados na `main`, documentacao javadoc e .jar funcional prontos para entrega.
+
+---
+
+9.) Como usar 
+
+Ao abrir você vai cadastrar sua conta ou utilizar um usuário existente ex:( usuário: wilson, senha: wilson).
+Na aba de busca, você pode ver e procurar pelas músicas existentes por nome, tipo ou artista. 
+Também na aba de busca você pode curtir as músicas colocando seu ID e apertando em curtir e pode colocar as músicas em uma playlist usando o ID da música e da playlist.
+Na aba de playlist, você pode criar as playlists e buscar por elas, pode visualizar as músicas dentro da playlist e remodelar caso queira.
+No histórico, pode ser visto as músicas pesquisadas.
+Na página de curtidas estão as músicas que você curtiu na página de busca.
+
